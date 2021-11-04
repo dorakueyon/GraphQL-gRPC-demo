@@ -37,7 +37,7 @@ func create(c *client.Client) {
 
 func read(c *client.Client) {
 	// 記事をREAD
-	var id int64 = 16
+	var id int64 = 1
 	res, err := c.Service.ReadArticle(context.Background(), &pb.ReadArticleRequest{Id: id})
 	if err != nil {
 		log.Fatalf("Failed to ReadArticle: %v\n", err)
@@ -47,7 +47,7 @@ func read(c *client.Client) {
 
 func update(c *client.Client) {
 	// 記事をUPDATE
-	var id int64 = 16
+	var id int64 = 1
 	input := &pb.ArticleInput{
 		Author:  "GraphQL master",
 		Title:   "GraphQL",
@@ -62,7 +62,7 @@ func update(c *client.Client) {
 
 func delete(c *client.Client) {
 	// 記事をDELETE
-	var id int64 = 13
+	var id int64 = 1
 	res, err := c.Service.DeleteArticle(context.Background(), &pb.DeleteArticleRequest{Id: id})
 	if err != nil {
 		log.Fatalf("Failed to UpdateArticle: %v\n", err)
