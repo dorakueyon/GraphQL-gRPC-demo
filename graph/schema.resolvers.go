@@ -6,9 +6,9 @@ package graph
 import (
 	"context"
 
-	"github.com/k88t76/GraphQL-gRPC-demo/article/pb"
-	"github.com/k88t76/GraphQL-gRPC-demo/graph/generated"
-	"github.com/k88t76/GraphQL-gRPC-demo/graph/model"
+	"github.com/dorakueyon/GraphQL-gRPC-demo/article/pb"
+	"github.com/dorakueyon/GraphQL-gRPC-demo/graph/generated"
+	"github.com/dorakueyon/GraphQL-gRPC-demo/graph/model"
 )
 
 func (r *mutationResolver) CreateArticle(ctx context.Context, input model.CreateInput) (*model.Article, error) {

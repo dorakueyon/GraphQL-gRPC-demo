@@ -1,6 +1,6 @@
 package graph
 
-import "github.com/k88t76/GraphQL-gRPC-demo/article/client"
+import "github.com/dorakueyon/GraphQL-gRPC-demo/article/client"
 
 // This file will not be regenerated automatically.
 //

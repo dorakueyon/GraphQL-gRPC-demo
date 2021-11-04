@@ -6,8 +6,8 @@ import (
 	"io"
 	"log"
 
-	"github.com/k88t76/GraphQL-gRPC-demo/article/client"
-	"github.com/k88t76/GraphQL-gRPC-demo/article/pb"
+	"github.com/dorakueyon/GraphQL-gRPC-demo/article/client"
+	"github.com/dorakueyon/GraphQL-gRPC-demo/article/pb"
 )
 
 // gRPCサーバーの動作確認用

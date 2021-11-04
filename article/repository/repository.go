@@ -4,7 +4,7 @@ import (
 	"context"
 	"database/sql"
 
-	"github.com/k88t76/GraphQL-gRPC-demo/article/pb"
+	"github.com/dorakueyon/GraphQL-gRPC-demo/article/pb"
 	_ "github.com/mattn/go-sqlite3"
 )
 

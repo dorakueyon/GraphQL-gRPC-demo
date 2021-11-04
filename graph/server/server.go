@@ -7,9 +7,9 @@ import (
 
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/playground"
-	"github.com/k88t76/GraphQL-gRPC-demo/article/client"
-	"github.com/k88t76/GraphQL-gRPC-demo/graph"
-	"github.com/k88t76/GraphQL-gRPC-demo/graph/generated"
+	"github.com/dorakueyon/GraphQL-gRPC-demo/article/client"
+	"github.com/dorakueyon/GraphQL-gRPC-demo/graph"
+	"github.com/dorakueyon/GraphQL-gRPC-demo/graph/generated"
 )
 
 const defaultPort = "8080"

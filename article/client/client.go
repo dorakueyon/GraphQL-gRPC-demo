@@ -4,8 +4,8 @@ import (
 	"context"
 	"io"
 
-	"github.com/k88t76/GraphQL-gRPC-demo/article/pb"
-	"github.com/k88t76/GraphQL-gRPC-demo/graph/model"
+	"github.com/dorakueyon/GraphQL-gRPC-demo/article/pb"
+	"github.com/dorakueyon/GraphQL-gRPC-demo/graph/model"
 	"google.golang.org/grpc"
 )
 

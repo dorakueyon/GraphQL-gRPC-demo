@@ -4,9 +4,9 @@ import (
 	"log"
 	"net"
 
-	"github.com/k88t76/GraphQL-gRPC-demo/article/pb"
-	"github.com/k88t76/GraphQL-gRPC-demo/article/repository"
-	"github.com/k88t76/GraphQL-gRPC-demo/article/service"
+	"github.com/dorakueyon/GraphQL-gRPC-demo/article/pb"
+	"github.com/dorakueyon/GraphQL-gRPC-demo/article/repository"
+	"github.com/dorakueyon/GraphQL-gRPC-demo/article/service"
 	"google.golang.org/grpc"
 )
 

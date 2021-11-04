@@ -12,7 +12,7 @@ import (
 
 	"github.com/99designs/gqlgen/graphql"
 	"github.com/99designs/gqlgen/graphql/introspection"
-	"github.com/k88t76/GraphQL-gRPC-demo/graph/model"
+	"github.com/dorakueyon/GraphQL-gRPC-demo/graph/model"
 	gqlparser "github.com/vektah/gqlparser/v2"
 	"github.com/vektah/gqlparser/v2/ast"
 )
@@ -277,7 +277,7 @@ func (ec *executionContext) field_Mutation_createArticle_args(ctx context.Contex
 	var arg0 model.CreateInput
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNCreateInput2githubᚗcomᚋk88t76ᚋGraphQLᚑgRPCᚑdemoᚋgraphᚋmodelᚐCreateInput(ctx, tmp)
+		arg0, err = ec.unmarshalNCreateInput2githubᚗcomᚋdorakueyonᚋGraphQLᚑgRPCᚑdemoᚋgraphᚋmodelᚐCreateInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -307,7 +307,7 @@ func (ec *executionContext) field_Mutation_updateArticle_args(ctx context.Contex
 	var arg0 model.UpdateInput
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNUpdateInput2githubᚗcomᚋk88t76ᚋGraphQLᚑgRPCᚑdemoᚋgraphᚋmodelᚐUpdateInput(ctx, tmp)
+		arg0, err = ec.unmarshalNUpdateInput2githubᚗcomᚋdorakueyonᚋGraphQLᚑgRPCᚑdemoᚋgraphᚋmodelᚐUpdateInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -563,7 +563,7 @@ func (ec *executionContext) _Mutation_createArticle(ctx context.Context, field g
 	}
 	res := resTmp.(*model.Article)
 	fc.Result = res
-	return ec.marshalNArticle2ᚖgithubᚗcomᚋk88t76ᚋGraphQLᚑgRPCᚑdemoᚋgraphᚋmodelᚐArticle(ctx, field.Selections, res)
+	return ec.marshalNArticle2ᚖgithubᚗcomᚋdorakueyonᚋGraphQLᚑgRPCᚑdemoᚋgraphᚋmodelᚐArticle(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_updateArticle(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -605,7 +605,7 @@ func (ec *executionContext) _Mutation_updateArticle(ctx context.Context, field g
 	}
 	res := resTmp.(*model.Article)
 	fc.Result = res
-	return ec.marshalNArticle2ᚖgithubᚗcomᚋk88t76ᚋGraphQLᚑgRPCᚑdemoᚋgraphᚋmodelᚐArticle(ctx, field.Selections, res)
+	return ec.marshalNArticle2ᚖgithubᚗcomᚋdorakueyonᚋGraphQLᚑgRPCᚑdemoᚋgraphᚋmodelᚐArticle(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_deleteArticle(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -689,7 +689,7 @@ func (ec *executionContext) _Query_article(ctx context.Context, field graphql.Co
 	}
 	res := resTmp.(*model.Article)
 	fc.Result = res
-	return ec.marshalNArticle2ᚖgithubᚗcomᚋk88t76ᚋGraphQLᚑgRPCᚑdemoᚋgraphᚋmodelᚐArticle(ctx, field.Selections, res)
+	return ec.marshalNArticle2ᚖgithubᚗcomᚋdorakueyonᚋGraphQLᚑgRPCᚑdemoᚋgraphᚋmodelᚐArticle(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_articles(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -724,7 +724,7 @@ func (ec *executionContext) _Query_articles(ctx context.Context, field graphql.C
 	}
 	res := resTmp.([]*model.Article)
 	fc.Result = res
-	return ec.marshalNArticle2ᚕᚖgithubᚗcomᚋk88t76ᚋGraphQLᚑgRPCᚑdemoᚋgraphᚋmodelᚐArticleᚄ(ctx, field.Selections, res)
+	return ec.marshalNArticle2ᚕᚖgithubᚗcomᚋdorakueyonᚋGraphQLᚑgRPCᚑdemoᚋgraphᚋmodelᚐArticleᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query___type(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -2359,11 +2359,11 @@ func (ec *executionContext) ___Type(ctx context.Context, sel ast.SelectionSet, o
 
 // region    ***************************** type.gotpl *****************************
 
-func (ec *executionContext) marshalNArticle2githubᚗcomᚋk88t76ᚋGraphQLᚑgRPCᚑdemoᚋgraphᚋmodelᚐArticle(ctx context.Context, sel ast.SelectionSet, v model.Article) graphql.Marshaler {
+func (ec *executionContext) marshalNArticle2githubᚗcomᚋdorakueyonᚋGraphQLᚑgRPCᚑdemoᚋgraphᚋmodelᚐArticle(ctx context.Context, sel ast.SelectionSet, v model.Article) graphql.Marshaler {
 	return ec._Article(ctx, sel, &v)
 }
 
-func (ec *executionContext) marshalNArticle2ᚕᚖgithubᚗcomᚋk88t76ᚋGraphQLᚑgRPCᚑdemoᚋgraphᚋmodelᚐArticleᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.Article) graphql.Marshaler {
+func (ec *executionContext) marshalNArticle2ᚕᚖgithubᚗcomᚋdorakueyonᚋGraphQLᚑgRPCᚑdemoᚋgraphᚋmodelᚐArticleᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.Article) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
 	isLen1 := len(v) == 1
@@ -2387,7 +2387,7 @@ func (ec *executionContext) marshalNArticle2ᚕᚖgithubᚗcomᚋk88t76ᚋGraphQ
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalNArticle2ᚖgithubᚗcomᚋk88t76ᚋGraphQLᚑgRPCᚑdemoᚋgraphᚋmodelᚐArticle(ctx, sel, v[i])
+			ret[i] = ec.marshalNArticle2ᚖgithubᚗcomᚋdorakueyonᚋGraphQLᚑgRPCᚑdemoᚋgraphᚋmodelᚐArticle(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -2400,7 +2400,7 @@ func (ec *executionContext) marshalNArticle2ᚕᚖgithubᚗcomᚋk88t76ᚋGraphQ
 	return ret
 }
 
-func (ec *executionContext) marshalNArticle2ᚖgithubᚗcomᚋk88t76ᚋGraphQLᚑgRPCᚑdemoᚋgraphᚋmodelᚐArticle(ctx context.Context, sel ast.SelectionSet, v *model.Article) graphql.Marshaler {
+func (ec *executionContext) marshalNArticle2ᚖgithubᚗcomᚋdorakueyonᚋGraphQLᚑgRPCᚑdemoᚋgraphᚋmodelᚐArticle(ctx context.Context, sel ast.SelectionSet, v *model.Article) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "must not be null")
@@ -2425,7 +2425,7 @@ func (ec *executionContext) marshalNBoolean2bool(ctx context.Context, sel ast.Se
 	return res
 }
 
-func (ec *executionContext) unmarshalNCreateInput2githubᚗcomᚋk88t76ᚋGraphQLᚑgRPCᚑdemoᚋgraphᚋmodelᚐCreateInput(ctx context.Context, v interface{}) (model.CreateInput, error) {
+func (ec *executionContext) unmarshalNCreateInput2githubᚗcomᚋdorakueyonᚋGraphQLᚑgRPCᚑdemoᚋgraphᚋmodelᚐCreateInput(ctx context.Context, v interface{}) (model.CreateInput, error) {
 	res, err := ec.unmarshalInputCreateInput(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
@@ -2460,7 +2460,7 @@ func (ec *executionContext) marshalNString2string(ctx context.Context, sel ast.S
 	return res
 }
 
-func (ec *executionContext) unmarshalNUpdateInput2githubᚗcomᚋk88t76ᚋGraphQLᚑgRPCᚑdemoᚋgraphᚋmodelᚐUpdateInput(ctx context.Context, v interface{}) (model.UpdateInput, error) {
+func (ec *executionContext) unmarshalNUpdateInput2githubᚗcomᚋdorakueyonᚋGraphQLᚑgRPCᚑdemoᚋgraphᚋmodelᚐUpdateInput(ctx context.Context, v interface{}) (model.UpdateInput, error) {
 	res, err := ec.unmarshalInputUpdateInput(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
