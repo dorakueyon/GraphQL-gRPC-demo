@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  client:
+    build:
+      context: .
+      dockerfile: ./graph/Dockerfile
+    container_name: client_graphql
+    tty: true
+    env_file:
+      - .env
+    ports:
+      - 8080:8080
+    volumes:
+      - ./graph:/go/src/app/graph
+      - ./go.mod:/go/src/app/go.mod
+      - ./go.sum:/go/src/app/go.sum

@@ -12,20 +12,34 @@ import (
 	"github.com/dorakueyon/GraphQL-gRPC-demo/graph/generated"
 )
 
-const defaultPort = "8080"
+const defaultgRPCHost = "localhost"
+const defaultgRPCPort = "50051"
+const defaultGraphqlHost = "localhost"
+const defaultGraphqlPort = "8080"
 
 func main() {
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = defaultPort
+	graphqlPort := os.Getenv("GRAPHQL_PORT")
+	if graphqlPort == "" {
+		graphqlPort = defaultGraphqlPort
 	}
 
 	// articleClientを生成
-	articleClient, err := client.NewClient("localhost:50051")
+	grpcHost := os.Getenv("GRPC_HOST")
+	if grpcHost == "" {
+		grpcHost = defaultgRPCHost
+	}
+	grpcPort := os.Getenv("GRPC_PORT")
+	if grpcPort == "" {
+		grpcPort = defaultgRPCPort
+	}
+
+	gRPCDns := grpcHost + ":" + grpcPort
+	articleClient, err := client.NewClient(gRPCDns)
 	if err != nil {
 		articleClient.Close()
 		log.Fatalf("Failed to create article client: %v\n", err)
 	}
+	log.Printf("request to  http://%s/ for gRPC server", gRPCDns)
 
 	// GraphQLサーバーにResolverを登録
 	srv := handler.NewDefaultServer(
@@ -42,6 +56,6 @@ func main() {
 	http.Handle("/query", srv)
 
 	// GraphQLサーバーを起動
-	log.Printf("connect to http://localhost:%s/ for GraphQL playground", port)
-	log.Fatal(http.ListenAndServe(":"+port, nil))
+	log.Printf("connect to http://localhost:%s/ for GraphQL playground", graphqlPort)
+	log.Fatal(http.ListenAndServe(":"+graphqlPort, nil))
 }
