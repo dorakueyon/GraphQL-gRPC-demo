@@ -1,91 +1,38 @@
 package main
 
 import (
-	"context"
-	"fmt"
-	"io"
 	"log"
+	"net"
 
-	"github.com/dorakueyon/GraphQL-gRPC-demo/article/client"
 	"github.com/dorakueyon/GraphQL-gRPC-demo/article/pb"
+	"github.com/dorakueyon/GraphQL-gRPC-demo/article/repository"
+	"github.com/dorakueyon/GraphQL-gRPC-demo/article/service"
+	"google.golang.org/grpc"
 )
 
-// gRPCサーバーの動作確認用
 func main() {
-	// clientを生成
-	c, _ := client.NewClient("localhost:50051")
-	create(c)
-	read(c)
-	update(c)
-	delete(c)
-	list(c)
-}
 
-func create(c *client.Client) {
-	// 記事をCREATE
-	input := &pb.ArticleInput{
-		Author:  "gopher",
-		Title:   "gRPC",
-		Content: "gRPC is so cool!",
-	}
-	res, err := c.Service.CreateArticle(context.Background(), &pb.CreateArticleRequest{ArticleInput: input})
+	// articleサーバーに接続
+	lis, err := net.Listen("tcp", ":50051")
 	if err != nil {
-		log.Fatalf("Failed to CreateArticle: %v\n", err)
+		log.Fatalf("Failed to listen: %v\n", err)
 	}
-	fmt.Printf("CreateArticle Response: %v\n", res)
-}
+	defer lis.Close()
 
-func read(c *client.Client) {
-	// 記事をREAD
-	var id int64 = 1
-	res, err := c.Service.ReadArticle(context.Background(), &pb.ReadArticleRequest{Id: id})
+	// RepositoryとServiceを作成
+	repository, err := repository.NewsqliteRepo()
 	if err != nil {
-		log.Fatalf("Failed to ReadArticle: %v\n", err)
+		log.Fatalf("Failed to create sqlite repository: %v\n", err)
 	}
-	fmt.Printf("ReadArticle Response: %v\n", res)
-}
+	service := service.NewService(repository)
 
-func update(c *client.Client) {
-	// 記事をUPDATE
-	var id int64 = 1
-	input := &pb.ArticleInput{
-		Author:  "GraphQL master",
-		Title:   "GraphQL",
-		Content: "GraphQL is very smart!",
-	}
-	res, err := c.Service.UpdateArticle(context.Background(), &pb.UpdateArticleRequest{Id: id, ArticleInput: input})
-	if err != nil {
-		log.Fatalf("Failed to UpdateArticle: %v\n", err)
-	}
-	fmt.Printf("UpdateArticle Response: %v\n", res)
-}
+	//サーバーにarticleサービスを登録
+	server := grpc.NewServer()
+	pb.RegisterArticleServiceServer(server, service)
 
-func delete(c *client.Client) {
-	// 記事をDELETE
-	var id int64 = 1
-	res, err := c.Service.DeleteArticle(context.Background(), &pb.DeleteArticleRequest{Id: id})
-	if err != nil {
-		log.Fatalf("Failed to UpdateArticle: %v\n", err)
-	}
-	fmt.Printf("The article has been deleted (%v)\n", res)
-}
-
-func list(c *client.Client) {
-	// 記事を全取得
-	stream, err := c.Service.ListArticle(context.Background(), &pb.ListArticleRequest{})
-	if err != nil {
-		log.Fatalf("Failed to ListArticle: %v\n", err)
-	}
-
-	// Server Streamingで渡されたレスポンスを１つ１つ受け取る
-	for {
-		res, err := stream.Recv()
-		if err == io.EOF {
-			break
-		}
-		if err != nil {
-			log.Fatalf("Failed to Server Streaming: %v\n", err)
-		}
-		fmt.Println(res)
+	//articleサーバーを起動
+	log.Println("Listening on port 50051...")
+	if err := server.Serve(lis); err != nil {
+		log.Fatalf("Failed to serve: %v", err)
 	}
 }
